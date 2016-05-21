@@ -6,7 +6,7 @@ var cloudinary = require('cloudinary');
 
 
 // Declare Constants
-var CLOUDINARY_HOST = 'http://res.cloudinary.com';
+var CLOUDINARY_HOST = 'https://res.cloudinary.com';
 keystone.set('cloudinary folders', true);
 
 // Collection of templates to interpolate

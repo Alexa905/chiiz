@@ -4,7 +4,7 @@ $(document).on('DOMContentLoaded', function () {
 	var GALLERYHEIGHT = 670;
 	var bootstrapCarousel = $('.carousel');
 	var gallery = {
-		firstInit: false,
+		firstInit: true,
 		time: 6000,// промежуток времени,через которое меняются слайды
 		next: $(".gallery-control.right"),
 		prev: $(".gallery-control.left"),
@@ -150,7 +150,17 @@ $(document).on('DOMContentLoaded', function () {
 			});
 		}
 	}
-
+	
+	$('.gallery-image-big img').load(function(e){
+		var img = e.currentTarget;
+		if (img.scrollHeight > img.scrollWidth) {
+			img.classList.add("vertical");
+		}
+	});
+	if(gallery.firstInit){
+		gallery.init();
+		gallery.firstInit = false;
+	}
 	$(document).on('click.bs.collapse.data-api', '[data-toggle="collapse"]', function (e) {
 		var $this = $(this);
 		if (!$this.attr('data-target')) e.preventDefault();
@@ -158,7 +168,6 @@ $(document).on('DOMContentLoaded', function () {
 		$(".social-icons").fadeToggle(100);
 	});
 
-	setTimeout(gallery.init, 200);
 	setPortfolioNavigation();
 	bootstrapCarousel.carousel();
 	bootstrapCarousel.swipe({
