@@ -1,0 +1,13 @@
+<ul class="pagination">
+	<li {{#unless data.news.previous}}class="disabled"{{/unless}}>
+		<a href="{{paginationPreviousUrl data.news.previous}}">
+			<span class="pagination-btn left"></span>
+		</a>
+	</li>
+	{{{paginationNavigation data.news.pages data.news.currentPage data.news.totalPages}}}
+	<li {{#unless data.news.next}}class="disabled"{{/unless}}>
+		<a href="{{paginationNextUrl data.news.next data.news.totalPages}}">
+			<span class="pagination-btn right"></span>
+		</a>
+	</li>
+</ul>

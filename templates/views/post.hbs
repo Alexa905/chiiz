@@ -1,0 +1,18 @@
+<div class="container post">
+    <h2>НОВОСТИ</h2>
+	<div class="row">
+		<div class="col-md-12">
+			<article>
+				<p><a href="/news">&larr; Вернуться ко всем новостям</a></p>
+				<hr>
+				<header class="text-center">
+                    <span class="publish-date">{{{  dateFormat publishedDate  format="YYYY - MM - DD"}}}</span>
+					<h4>{{data.post.title}}</h4>
+				</header>
+				<div class="post">
+					{{{data.post.content.extended}}}
+				</div>
+			</article>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,26 @@
+<div class="container news">
+    <h2>НОВОСТИ</h2>
+
+    <div class="row">
+        <div class="col-md-12">
+            <!--            <h5 class="text-weight-normal">Показано {{ data.news.results.length}} новостей.</h5>-->
+            <div class="blog">
+				{{# each  data.news.results}}
+                    <div data-ks-editable="{{#if ../user}}{{adminEditableUrl ../../user _id}}{{/if}}" class="post">
+                        <header class="text-center">
+                            <span class="publish-date">{{{  dateFormat publishedDate  format="YYYY - MM - DD"}}}</span>
+                            <h4>{{{title}}}</h4>
+                        </header>
+
+                        <p>{{{content.brief}}}</p>
+
+                        <p class="read-more"><a href="{{postUrl slug}}">Подробнее...</a></p>
+                    </div>
+				{{/each}}
+            </div>
+        </div>
+    </div>
+    <div class="text-center">
+		{{>pagination}}
+    </div>
+</div>

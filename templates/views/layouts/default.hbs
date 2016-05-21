@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Anna Bazhenovskaya</title>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link href="/styles/site.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600&subset=cyrillic,cyrillic-ext,latin'
+          rel='stylesheet' type='text/css'>
+
+	{{!-- This file provides the default styling for the KeystoneJS Content Editor
+        - only renders when user is logged in and admin--}}
+	{{{isAdminEditorCSS user}}}
+
+	{{!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
+    //- Safely remove this block if you are not targeting IE8 --}}
+    <!--[if lt IE 9]>
+	<script src="//cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.js"></script>
+	<script src="//cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
+	
+    <![endif]-->
+
+</head>
+<body>
+<div id="header">
+    <div class="container">
+        <div role="navigation" class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-left list-unstyled list-inline">
+                        <li><span>Портфолио</span>
+                            <ul class="list-unstyled">
+								{{# each navLinks.portfolio}}
+                                    <li {{#ifeq ../section key}}class="active"{{else}}{{/ifeq}}>
+                                        <a href="{{ href }}">{{ label }}</a>
+                                    </li>
+								{{/each}}
+                            </ul>
+                        </li>
+                        <li><a href="{{ navLinks.service.href }}">Услуги</a></li>
+                        <li><span>Советы</span>
+                            <ul class="list-unstyled">
+								{{# each navLinks.advice}}
+                                    <li {{#ifeq ../section key}}class="active"{{else}}{{/ifeq}}>
+                                        <a href="{{ href }}">{{ label }}</a>
+                                    </li>
+								{{/each}}
+                            </ul>
+                        </li>
+                        <li><a href="{{ navLinks.news.href }}">НОВОСТИ</a></li>
+                        <li><a href="{{ navLinks.contact.href }}">КОНТАКТЫ</a></li>
+                    </ul>
+
+                </div>
+                <a href="javascript:;" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle">
+                    <div class="patty"></div>
+                </a>
+                <div class="social-icons">
+                    <a target="_blank" href="https://vk.com/annabazhenovskaya" class="vk"></a>
+                    <a target="_blank" href="https://www.facebook.com/anna.bazhenovskaya" class="fb"></a>
+                    <a target="_blank" href="https://www.instagram.com/anyabazhen/" class="insta"></a>
+                </div>
+            </div>
+        </div>
+        <div class="header-logo-wrapper">
+            <div class="header-logo">
+                <a href="/">
+                    <img src="../images/logo.jpg" alt="Алена Баженовская"/>
+                </a>
+            </div>
+            <h1 class="header-description">Детский и семейный фотограф</h1>
+        </div>
+    </div>
+</div>
+<div id="body">
+    <!--
+    Flash messages allow you to display once-off status messages to users, e.g. form
+    validation errors, success messages, etc
+-->
+	{{#if messages}}
+        <div id="flash-messages" class="container">
+			{{#if messages.info}}
+                <div class="alert alert-info">
+					{{{flashMessages messages.info}}}
+                </div>
+			{{/if}}
+			{{#if messages.success}}
+                <div class="alert alert-success">
+					{{{flashMessages messages.success}}}
+                </div>
+			{{/if}}
+			{{#if messages.warning}}
+                <div class="alert alert-warning">
+					{{{flashMessages messages.warning}}}
+                </div>
+			{{/if}}
+			{{#if messages.error}}
+                <div class="alert alert-danger">
+					{{{flashMessages messages.error}}}
+                </div>
+			{{/if}}
+        </div>
+	{{/if}}
+    <!-- The content block should contain the body of your template's content-->
+	{{{body}}}
+</div>
+<div class="container">
+    <div id="footer">
+        <p>&copy;2016 Анна Баженовская</p>
+    </div>
+</div>
+{{!--
+    //- jQuery 1.11.3 is included by default, and required by both Bootstrap
+    //- and the KeystoneJS Content Editor. If you are not targeting IE8,
+    //- you can upgrade to 2.1.4 (also bundled) for better performance.
+--}}
+<script src="/js/jquery/jquery-2.1.4.min.js"></script>
+<script src="/js/jquery/jquery.touchSwipe.min.js"></script>
+<script src="/js/bootstrap/bootstrap-3.3.5.min.js"></script>
+<script src="/js/pagination.min.js"></script>
+
+<script defer src="/js/script.js"></script>
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-77953420-1', 'auto');
+    ga('send', 'pageview');
+
+</script>
+
+{{{isAdminEditorJS user}}}
+</body>
+</html>
