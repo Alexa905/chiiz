@@ -1,28 +1,29 @@
 <div class="container page">
     <h2>Контакты</h2>
-
+{{# each contacts}}
     <div class="row contacts">
         <dl>
             <dt>
                 <span class="icon icon-marker"></span>
             </dt>
-            <dd>............ Москва - Красногорск - Минск</dd>
+            <dd>............ {{ location }}</dd>
             <dt>
                 <span class="icon icon-mail"></span>
             </dt>
-            <dd>............... annabazenovskaya@mail.ru</dd>
+            <dd>............... <a href="mailto:{{ email }}" target="_blank">{{ email }}</a></dd>
             <dt>
                 <span class="icon icon-phone"></span>
             </dt>
-            <dd class="phone">............................... +7 916 242 93 42</dd>
+            <dd class="phone">............................... {{ phone }}</dd>
             <dt>
                 <span class="icon icon-whatsApp"></span>
             </dt>
-            <dd class="phone">.......... +7 916 242 93 42</dd>
+            <dd class="phone">.......... {{ whatsApp }}</dd>
             <dt>
                 <span class="icon icon-viber"></span>
             </dt>
-            <dd class="phone">....................... +7 916 242 93 42</dd>
+            <dd class="phone">....................... {{ viber }}</dd>
         </dl>
     </div>
+{{/each}}
 </div>

@@ -7306,6 +7306,12 @@ dl dd {
   top: 5px;
   background-position: 0px -41px;
 }
+.contacts a {
+  color: #282828;
+}
+.contacts a:hover {
+  text-decoration: none;
+}
 .advice {
   font-family: 'Open Sans', sans-serif;
   font-size: 14px;
